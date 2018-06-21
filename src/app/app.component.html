@@ -1,0 +1,48 @@
+<div>
+  <div class="container">
+  <table class="table table-fixed">
+    <thead>
+      <tr>
+        <th class="col-md-3">Class</th>
+        <th class="col-md-3">Students</th>
+        <th class="col-md-3">Pass</th>
+        <th class="col-md-3">Fail</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of classData | keys; let i = index" (click)="showStudentsData(data.key)">
+        <td class="col-md-3">{{data.key}}</td>
+        <td class="col-md-3">{{classData[data.key].length}}</td>  
+        <td class="col-md-3">{{getPassCount(classData[data.key])}}</td>
+        <td class="col-md-3">{{getFailCount(classData[data.key])}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="table table-fixed" *ngIf="studentsData && studentsData.length">
+    <thead>
+      <tr>
+        <th class="col-md-1">Name</th>
+        <th class="col-md-1">Maths</th>
+        <th class="col-md-2">Science</th>
+        <th class="col-md-1">English</th>
+        <th class="col-md-2">Geography</th>
+        <th class="col-md-2">History</th>
+        <th class="col-md-1">Total</th>
+        <th class="col-md-2">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of studentsData">
+        <td class="col-md-1">{{data.Name}}</td>
+        <td class="col-md-1">{{data.Maths}}</td>  
+        <td class="col-md-2">{{data.Science}}</td>
+        <td class="col-md-1">{{data.English}}</td>
+        <td class="col-md-2">{{data.Geography}}</td>
+        <td class="col-md-2">{{data.History}}</td>  
+        <td class="col-md-1">{{data.Total}}</td>
+        <td class="col-md-2">{{data.Status}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>
